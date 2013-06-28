@@ -24,7 +24,7 @@ get '/note/edit/:id' do
 	erb :note_form
 end
 
-post '/note/update/:id' do 
+put '/note/update/:id' do 
 	@note = Note.find(params[:id])
 	@note.assign_attributes(params[:note])
 	if @note.valid?
@@ -35,7 +35,7 @@ post '/note/update/:id' do
 	end
 end
 
-get '/note/delete/:id' do
+delete '/note/delete' do
 	Note.delete(params[:id])
-	redirect '/'
+	redirect "/"
 end

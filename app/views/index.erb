@@ -4,11 +4,13 @@
   <p><a href="/note/new">Create New Note</a></p>
 
   <% @notes.each_with_index do |note,index| %>
+    <div id="note_id_<%= note.id %>">
       <h4><%= index+1 %>. <%= note.title %></h4>
       <p><%= note.content %></p>
       <a href="/note/edit/<%= note.id %>">Edit</a>
-      <a href="/note/delete/<%= note.id %>">Delete</a>
+      <a class="delete" data-id="<%= note.id %>" href="#">Delete</a>
       <br>
+    </div>
   <% end %>
   
 </div>

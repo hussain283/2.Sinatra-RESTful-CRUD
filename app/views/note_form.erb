@@ -1,3 +1,4 @@
+
 <div class="container">
 
 	<% if @note.id.nil? %>
@@ -6,10 +7,11 @@
 	<% else %>
 	  <h1>Edit Note</h1>
 	  <form id="note_form" action="/note/update/<%= @note.id %>" method="post">
+	  <input type="hidden" name="_method" value="put">
 	<% end %>
 
 		<input type="text" name="note[title]" placeholder="Enter Your Title" value="<%= @note.title %>"><br><br>
-		<textarea type="text" cols="40" rows="5" name="note[content]" value="<%= @note.content %>" placeholder="Enter Some Stuff Here"></textarea>
+		<textarea type="text" cols="40" rows="5" name="note[content]" placeholder="Enter Some Stuff Here"><%= @note.content %></textarea>
 		<br><br>
 	<% if @note.id.nil? %>
 		<input type="submit" value="Create!">
